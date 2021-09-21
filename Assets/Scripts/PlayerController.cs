@@ -6,23 +6,22 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 50.0f;
 
+    private CharacterController characterController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Creates an instance variable to store CharacterController
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Store position of the object
-        Vector3 pos = transform.position;
+        //Creates a new Vector3 to store the movement direction
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        //Calculate movement
-        pos.x += moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime;
-        pos.z += moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime;
-
-        //Updates the objects position
-        transform.position = pos;
+        //Calls SimpleMove() and passes in moveDirection multiplied by moveSpeed.
+        characterController.SimpleMove(moveDirection * moveSpeed);
     }
 }
