@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 50.0f;
+    public Rigidbody head;
 
     private CharacterController characterController;
 
@@ -23,5 +24,22 @@ public class PlayerController : MonoBehaviour
 
         //Calls SimpleMove() and passes in moveDirection multiplied by moveSpeed.
         characterController.SimpleMove(moveDirection * moveSpeed);
+    }
+
+    void FixedUpdate()
+    {
+        //Calculate Movement direction
+        Vector3 moveDirections = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        //Check if marine is standing still
+        if (moveDirections == Vector3.zero)
+        {
+            //TODO
+        }
+        else
+        {
+            //if moving then add force amount
+            head.AddForce(transform.right * 150, ForceMode.Acceleration);
+        }
     }
 }
