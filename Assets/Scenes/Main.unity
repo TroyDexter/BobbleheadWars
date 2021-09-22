@@ -1078,10 +1078,75 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7853023984344937921, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4501829781484411520, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -1946185775847271727, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -1079185258199196343, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -962066394388421515, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -87477765198896017, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -72580882300861787, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6894ab9bf18f9748881f7f3f6e93131,
         type: 3}
       propertyPath: m_Name
       value: BobbleMarine-Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538266708927096140, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046299050113825370, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423476907533783930, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520748301099313529, guid: a6894ab9bf18f9748881f7f3f6e93131,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6894ab9bf18f9748881f7f3f6e93131, type: 3}
@@ -1202,6 +1267,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
       propertyPath: m_Name
       value: BobbleArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 100078, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
       propertyPath: m_RootOrder
@@ -1495,6 +1564,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 50
   head: {fileID: 1402930356}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!143 &1986423558
 CharacterController:
   m_ObjectHideFlags: 0

@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 50.0f;
     public Rigidbody head;
+    public LayerMask layerMask;
 
     private CharacterController characterController;
+    private Vector3 currentLookTarget = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,27 @@ public class PlayerController : MonoBehaviour
         {
             //if moving then add force amount
             head.AddForce(transform.right * 150, ForceMode.Acceleration);
+        }
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
+
+        if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
+        {
+            if (hit.point != currentLookTarget)
+            {
+                currentLookTarget = hit.point;
+
+                //Get target position
+                Vector3 targetPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+
+                //Calculate the quaternion for where the marine should turn
+                Quaternion rotation = Quaternion.LookRotation(targetPosition - transform.position);
+
+                //Actually turn the marine using Lerp()
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10.0f);
+            }
         }
     }
 }
