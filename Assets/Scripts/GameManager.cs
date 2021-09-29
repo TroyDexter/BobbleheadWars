@@ -26,40 +26,48 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Accumulates the amount of time that has passes between each frame
         currentSpawnTime += Time.deltaTime;
 
         if (currentSpawnTime > generatedSpawnTime)
         {
             currentSpawnTime = 0;
+
+            //SpawnTime randomizer, creates a time between minSpawnTime and maxSpawnTime
             generatedSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
 
+            //Check whether to spawn alien or not. 
             if (aliensPerSpawn > 0 && aliensOnScreen < totalAliens)
             {
+                //creates array of where aliens spawn
                 List<int> previousSpawnLocations = new List<int>();
 
+                //Limits the amount of aliens at each spawn point
                 if (aliensPerSpawn > spawnPoints.Length)
                 {
                     aliensPerSpawn = spawnPoints.Length - 1;
                 }
 
-                aliensPerSpawn = (aliensPerSpawn > totalAliens) ? aliensPerSpawn - totalAliens : aliensPerSpawn;
+                //If aliensPerSpawn exceeds the maximum,then the amount of spawns will reduce.
+                aliensPerSpawn = (aliensPerSpawn > totalAliens) ? 
+                    aliensPerSpawn - totalAliens : aliensPerSpawn;
 
+                //iterates for each spawned alien
                 for (int i = 0; i < aliensPerSpawn; i++)
                 {
                     if (aliensOnScreen < maxAliensOnScreen)
                     {
                         aliensOnScreen += 1;
-
-                        //1 
                         int spawnPoint = -1;
 
-                        //2
                         while (spawnPoint == -1)
                         {
-                            //3
+                            //produces a random number as a possible spawn point
                             int randomNumber = Random.Range(0, spawnPoints.Length - 1);
 
-                            //4
+                            //checks the previousSpawnLocations array to see if that random number is an active spawn point.
+                            //If there’s no match, then you have your spawn point.
+                            //The number is added to the array and the spawnPoint is set
                             if (!previousSpawnLocations.Contains(randomNumber))
                             {
                                 previousSpawnLocations.Add(randomNumber);
@@ -67,11 +75,25 @@ public class GameManager : MonoBehaviour
                             }
                         }
 
+                        //grabs the spawn point based on the index that is generated 
                         GameObject spawnLocation = spawnPoints[spawnPoint];
 
+                        //Spawn the alien
                         GameObject newAlien = Instantiate(alien) as GameObject;
 
+                        //Positions the alien at the spawn point
                         newAlien.transform.position = spawnLocation.transform.position;
+
+                        //Get reference to alien script
+                        Alien alienScript = newAlien.GetComponent<Alien>();
+
+                        //Set target to the players current position
+                        alienScript.target = player.transform;
+
+                        //Rotate Alien towards the target
+                        Vector3 targetRotation = new Vector3(player.transform.position.x, newAlien.transform.position.y,
+                            player.transform.position.z);
+                        newAlien.transform.LookAt(targetRotation);
                     }
                 }
             }
