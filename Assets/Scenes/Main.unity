@@ -313,11 +313,11 @@ MonoBehaviour:
   - {fileID: 1251140571}
   - {fileID: 1467978265}
   alien: {fileID: 5422024918538421134, guid: 9d8996e3a4890b744959faf2f25eaf54, type: 3}
-  maxAliensOnScreen: 10
-  totalAliens: 10
+  maxAliensOnScreen: 50
+  totalAliens: 150
   minSpawnTime: 0
   maxSpawnTime: 3
-  aliensPerSpawn: 1
+  aliensPerSpawn: 5
 --- !u!4 &169112184
 Transform:
   m_ObjectHideFlags: 0
@@ -1525,6 +1525,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.26
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b9ed3647837b5e0458177a24ee96931e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
 --- !u!1 &1731842813
