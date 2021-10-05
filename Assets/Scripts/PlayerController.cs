@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 50.0f;
     public Rigidbody head;
     public LayerMask layerMask;
+    public Animator bodyAnimator;
 
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
@@ -36,10 +37,11 @@ public class PlayerController : MonoBehaviour
         //Check if marine is standing still
         if (moveDirections == Vector3.zero)
         {
-            //TODO
+            bodyAnimator.SetBool("IsMoving", false);
         }
         else
         {
+            bodyAnimator.SetBool("IsMoving", true);
             //if moving then add force amount
             head.AddForce(transform.right * 150, ForceMode.Acceleration);
         }
