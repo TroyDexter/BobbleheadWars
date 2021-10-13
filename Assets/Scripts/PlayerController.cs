@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour
     private float timeSinceHit = 0;
     private int hitNumber = -1;
     private bool isDead = false;
+    private DeathParticles deathParticles;
 
     // Start is called before the first frame update
     void Start()
     {
         //Creates an instance variable to store CharacterController
         characterController = GetComponent<CharacterController>();
+        deathParticles = gameObject.GetComponentInChildren<DeathParticles>();
     }
 
     // Update is called once per frame
@@ -121,6 +123,8 @@ public class PlayerController : MonoBehaviour
         marineBody.gameObject.GetComponent<CapsuleCollider>().enabled = true;
         marineBody.gameObject.GetComponent<Gun>().enabled = false;
         isDead = true;
+
+        deathParticles.Activate();
 
         Destroy(head.gameObject.GetComponent<HingeJoint>());
         head.transform.parent = null;
