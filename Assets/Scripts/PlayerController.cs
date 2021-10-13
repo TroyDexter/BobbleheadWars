@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
         marineBody.useGravity = true;
         marineBody.gameObject.GetComponent<CapsuleCollider>().enabled = true;
         marineBody.gameObject.GetComponent<Gun>().enabled = false;
+        isDead = true;
 
         Destroy(head.gameObject.GetComponent<HingeJoint>());
         head.transform.parent = null;
