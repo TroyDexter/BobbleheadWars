@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isHit = false;
     private float timeSinceHit = 0;
     private int hitNumber = -1;
-    private bool isDead = false;
+    //private bool isDead = false;
     private DeathParticles deathParticles;
 
     // Start is called before the first frame update
@@ -122,7 +122,6 @@ public class PlayerController : MonoBehaviour
         marineBody.useGravity = true;
         marineBody.gameObject.GetComponent<CapsuleCollider>().enabled = true;
         marineBody.gameObject.GetComponent<Gun>().enabled = false;
-        isDead = true;
 
         deathParticles.Activate();
 
