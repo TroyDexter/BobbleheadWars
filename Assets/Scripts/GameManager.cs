@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         //Adds the amount of time from the past frame
         currentUpgradeTime += Time.deltaTime;
 
@@ -138,7 +143,6 @@ public class GameManager : MonoBehaviour
     {
         aliensOnScreen -= 1;
         totalAliens -= 1;
-        Debug.Log(totalAliens);
     }
 }
 
